@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=data.name%></title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+    * {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* color:white; */
+        /* background-color: black; */
+    }
+
+    form {
+        display: grid;
+        width: 40%;
+    }
+
+    input {
+        height: 35px;
+        font-size: 20px;
+        font-weight: 500;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgb(255, 183, 0);
+        padding: 5px;
+        width: 80%;
+        margin-bottom: 20px;
+        transition: width 0.8s 0.2s;
+    }
+
+    input:focus {
+        font-size: 18px;
+        border-bottom: 2px solid red;
+        width: 100%;
+        outline: none;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    button {
+        background: none;
+        border: 1px solid rgb(4, 113, 255);
+        background-color: rgb(113, 162, 226);
+        color: white;
+        font-size: 20px;
+        width: 100px;
+        height: 45px;
+        padding-inline: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <h1>Game: <%= data.name %> </h1>
+    <h2>Game ID: <%= data.game_id %> </h2>
+    <h2>Price: <%= data.price %> </h2>
+    <h2>category: <%= data.category %> </h2>
+    <a href="/home">Home</a>
+</body>
+</html>

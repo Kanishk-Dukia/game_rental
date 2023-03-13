@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@800&display=swap');
+
+    * {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* color:white; */
+        /* background-color: black; */
+        background: url('../images/676037.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        backdrop-filter: blur(2px);
+        /* color: white; */
+        
+    }
+
+    .scol{
+        display: inline-grid;
+        
+    }
+
+    .headi{
+        font-size: 3em;
+        color: blueviolet;
+    }
+
+    .data1{
+        font-size: 1.2em;
+        color: white;
+    }
+
+    form {
+        display: grid;
+        width: 40%;
+    }
+
+    input {
+        height: 35px;
+        font-size: 20px;
+        font-weight: 500;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgb(255, 183, 0);
+        padding: 5px;
+        width: 80%;
+        margin-bottom: 20px;
+        transition: width 0.8s 0.2s;
+    }
+
+    input:focus {
+        font-size: 18px;
+        border-bottom: 2px solid red;
+        width: 100%;
+        outline: none;
+    }
+
+    label {
+        font-size: 20px;
+    }
+
+    button {
+        background: none;
+        border: 1px solid rgb(4, 113, 255);
+        background-color: rgb(113, 162, 226);
+        color: white;
+        font-size: 20px;
+        width: 100px;
+        height: 45px;
+        padding-inline: 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+
+
+       
+
+</style>
+<body >
+    <h1 class="headi">Store ID <%= id %>: <%= location %>  </h1>
+    <% let i=1; %> 
+    <div class="scol">
+    <% for(let game of data){ %>
+        <h3 class="data1"><%= game.game_id %>  <%= game.name %>  <%= game.copies_aval %>
+            <div><a style="color: red;" href="/store/<%= id %>/rent/<%= game.game_id %>">Rent</a></div>
+            <div><a style="color: azure;" href="/store/<%= id %>/return/<%= game.game_id %>">Return</a></div>
+            <div><a style="color: cyan;" href="/info/<%= game.game_id %>">Info</a></div>
+        </h3>
+        <% } 
+        %>  
+        <div class="np" ><a href="/newCustomer" style="color: azure;">New Customer?</a></div>
+        <div class="np"><a href="/store/<%= id %>/addNewGame"  style="color: azure;" >Add a New Game</a></div>
+        <div class="np"><a href="/home" style="color: azure;">Back</a></div>
+    </div>  
+        
+</body>
+</html>
